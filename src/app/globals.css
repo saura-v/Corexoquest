@@ -161,8 +161,8 @@ h1, h2, h3, h4, h5, h6 {
 ::selection { background: rgba(0,212,255,0.2); color: #E2E8F0; }
 
 /* ─── Glass ─────────────────────────────────────────────────────── */
-/* DARK glass */
-.dark .glass, html.dark .glass {
+/* DARK glass — default (no class or .dark class) */
+.glass {
   background: rgba(13,21,37,0.75);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
@@ -170,22 +170,13 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: 0 8px 32px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.04);
 }
 
-/* When no class at all (default dark) */
-:root:not([class]) .glass, html .glass {
-  background: rgba(13,21,37,0.75);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(0,212,255,0.08);
-  box-shadow: 0 8px 32px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.04);
-}
-
-/* LIGHT glass */
+/* LIGHT glass — solid white card with clear elevation */
 html:not(.dark) .glass {
-  background: rgba(255,255,255,0.88);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(0,0,0,0.06);
-  box-shadow: 0 8px 32px rgba(0,0,0,0.07), inset 0 1px 0 rgba(255,255,255,0.9);
+  background: #FFFFFF;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.07), 0 1px 4px rgba(0,0,0,0.04);
 }
 
 /* ─── Gradient text ─────────────────────────────────────────────── */
@@ -197,13 +188,15 @@ html:not(.dark) .glass {
   background-size: 200%;
   animation: gradientShift 5s ease infinite;
 }
-.gradient-cyan-purple {
+.gradient-cyan-purple,
+.gradient-text-cyan-purple {
   background: linear-gradient(135deg, #00D4FF, #8B5CF6);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
-.gradient-purple-gold {
+.gradient-purple-gold,
+.gradient-text-purple-gold {
   background: linear-gradient(135deg, #8B5CF6, #F59E0B);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -239,6 +232,15 @@ html:not(.dark) .bg-grid {
 /* ─── Section spacing ───────────────────────────────────────────── */
 .section-padding { padding: 5rem 0; }
 @media (max-width: 768px) { .section-padding { padding: 3rem 0; } }
+
+/* ─── Light mode section tint ───────────────────────────────────── */
+/* bg-secondary sections get a subtle white card feel in light mode */
+html:not(.dark) .bg-\[var\(--bg-secondary\)\] {
+  background: #F8FAFC !important;
+}
+html:not(.dark) .bg-\[var\(--bg-primary\)\] {
+  background: #EEF2F7 !important;
+}
 
 /* ─── Container ─────────────────────────────────────────────────── */
 .container-custom {
