@@ -5,7 +5,6 @@ import StatsSection from "@/components/home/StatsSection";
 import ProcessSection from "@/components/home/ProcessSection";
 import PortfolioPreview from "@/components/home/PortfolioPreview";
 import TestimonialsSection from "@/components/home/TestimonialsSection";
-import BlogPreview from "@/components/home/BlogPreview";
 import CTASection from "@/components/home/CTASection";
 
 export const metadata: Metadata = {
@@ -23,7 +22,6 @@ export default function HomePage() {
       <ProcessSection />
       <PortfolioPreview />
       <TestimonialsSection />
-      <BlogPreview />
       <CTASection />
     </div>
   );
